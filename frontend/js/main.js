@@ -20,7 +20,7 @@ if (form) {
     };
 
     try {
-      const res = await fetch(`${BACKEND_URL}/api/contact`, {
+      const res = await fetch(`ag-studio-production.up.railway.app/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
