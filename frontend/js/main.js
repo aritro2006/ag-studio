@@ -1,4 +1,4 @@
-const BACKEND_URL = 'https://ag-studio-backend.onrender.com';
+const BACKEND_URL = 'ag-studio-production.up.railway.app';
 
 const form = document.getElementById('contactForm');
 const formMsg = document.getElementById('formMsg');
