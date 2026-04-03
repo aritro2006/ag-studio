@@ -23,17 +23,14 @@ router.post('/contact', async (req, res) => {
       to: process.env.EMAIL_USER,
       replyTo: email,
       subject: `New inquiry from ${name}${service ? ' — ' + service : ''}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
+      html: `<h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         ${service ? `<p><strong>Service:</strong> ${service}</p>` : ''}
         ${budget ? `<p><strong>Budget:</strong> ${budget}</p>` : ''}
         <p><strong>Message:</strong></p>
-        <p style="white-space:pre-wrap;">${message}</p>
-      `,
+        <p style="white-space:pre-wrap;">${message}</p>`,
     });
-
     res.status(200).json({ success: true, message: 'Message sent successfully!' });
   } catch (error) {
     console.error('Email error:', error);
