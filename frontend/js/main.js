@@ -1,4 +1,4 @@
-const BACKEND_URL = 'ag-studio-production.up.railway.app';
+const FORMSPREE_ID = 'xpqoydpp'; // e.g. 'xabc1234' from formspree.io
 
 const form = document.getElementById('contactForm');
 const formMsg = document.getElementById('formMsg');
@@ -20,20 +20,23 @@ if (form) {
     };
 
     try {
-      const res = await fetch(`ag-studio-production.up.railway.app/api/contact`, {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
         body: JSON.stringify(data),
       });
 
       const result = await res.json();
 
-      if (result.success) {
+      if (res.ok) {
         formMsg.textContent = "Message sent! I'll get back to you within 24 hours.";
         formMsg.style.color = '#34d399';
         form.reset();
       } else {
-        formMsg.textContent = 'Something went wrong. Please try again.';
+        formMsg.textContent = result.error || 'Something went wrong. Please try again.';
         formMsg.style.color = '#f87171';
       }
     } catch (err) {
