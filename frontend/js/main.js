@@ -1,4 +1,4 @@
-const FORMSPREE_ID = 'xpqoydpp'; // e.g. 'xabc1234' from formspree.io
+const FORMSPREE_ID = 'xpqoydpp';
 
 const form = document.getElementById('contactForm');
 const formMsg = document.getElementById('formMsg');
